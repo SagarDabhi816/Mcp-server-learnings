@@ -16,7 +16,7 @@ server.registerTool(
     })
 );
 
-server.registerTool("addTwoNumbers",{
+server.registerTool('addTwoNumbers',{
     title: "add Two Numbers",
     description: "adds Two Numbers Together",
     inputSchema: z.object({
@@ -24,13 +24,9 @@ server.registerTool("addTwoNumbers",{
       b: z.number().describe("The second number"),
     }),
   },
-  {
-    async({ a, b }) {
-      return {
-        contents: [{ type: "text", text: String(a + b) }],
-      };
-    },
-  },
+  async({ a, b }) => ({
+    content: [{ type: "text", text: String(a + b) }],
+  }),
 );
 
 async function main() {
